@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#c9a84c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Barbearia Pro - Sistema Completo</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+  <!-- HEADER COM LOGO -->
+    <header class="main-header">
+        <div class="header-top">
+            <img src="icons/logo.png" alt="Barbearia Pro" class="logo-img">
+            <div class="header-text">
+                <h1>Barbearia Pro</h1>
+                <p class="subtitle">Sistema de Gerenciamento</p>
+            </div>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <a href="agendamento.html" class="nav-card">
+            <div class="nav-icon">📅</div>
+            <h3>Agendamentos</h3>
+            <p>Gerenciar horários</p>
+        </a>
+        <a href="clientes.html" class="nav-card">
+            <div class="nav-icon">👥</div>
+            <h3>Clientes</h3>
+            <p>Cadastro completo</p>
+        </a>
+        <a href="servicos.html" class="nav-card">
+            <div class="nav-icon">💇</div>
+            <h3>Serviços</h3>
+            <p>Catálogo de serviços</p>
+        </a>
+        <a href="financeiro.html" class="nav-card">
+            <div class="nav-icon">💰</div>
+            <h3>Financeiro</h3>
+            <p>Controle de caixa</p>
+        </a>
+    </nav>
+
+    <div class="dashboard">
+        <h2>📊 Resumo do Dia</h2>
+        <div id="resumoDiario" class="resumo-grid">
+            <div class="resumo-card">
+                <span class="resumo-numero" id="totalAgendamentos">0</span>
+                <span class="resumo-label">Agendamentos Hoje</span>
+            </div>
+            <div class="resumo-card">
+                <span class="resumo-numero" id="totalFaturamento">R$ 0</span>
+                <span class="resumo-label">Faturamento Hoje</span>
+            </div>
+            <div class="resumo-card">
+                <span class="resumo-numero" id="totalClientes">0</span>
+                <span class="resumo-label">Total Clientes</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/sw.js').then(function(registration) {
+                    console.log('ServiceWorker registrado com sucesso:', registration.scope);
+                }, function(err) {
+                    console.log('Falha ao registrar ServiceWorker:', err);
+                });
+            });
+        }
+    </script>
+</body>
+</html>

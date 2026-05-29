@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamentos - Barbearia Pro</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="agendamento.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <header class="page-header">
+        <a href="index.html" class="back-btn">← Voltar</a>
+        <h2>📅 Agendamentos</h2>
+    </header>
+
+    <div class="container">
+        <div class="calendario-container">
+            <h3>Selecionar Data</h3>
+            <input type="date" id="dataAgendamento" class="date-input">
+        </div>
+
+        <form id="formAgendamento" class="form-agendamento">
+            <h3>Novo Agendamento</h3>
+            <div class="form-group">
+                <label for="clienteSelect">Cliente:</label>
+                <select id="clienteSelect" required>
+                    <option value="">Selecione um cliente</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="servicoSelect">Serviço:</label>
+                <select id="servicoSelect" required>
+                    <option value="">Selecione um serviço</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="horarioSelect">Horário:</label>
+                <select id="horarioSelect" required>
+                    <option value="">Selecione um horário</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="observacao">Observação:</label>
+                <textarea id="observacao" rows="3" placeholder="Observações adicionais..."></textarea>
+            </div>
+            <button type="submit" class="btn-primary">Agendar</button>
+        </form>
+
+        <div class="agendamentos-lista">
+            <h3>Agendamentos do Dia</h3>
+            <div id="listaAgendamentos"></div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script src="agendamento.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js');
+        }
+    </script>
+</body>
+</html>
